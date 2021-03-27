@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
 import { Student } from 'src/app/models/Student';
+import { NotificationService } from 'src/app/services/notification.service';
 import { StudentService } from 'src/app/services/student.service';
 
 @Component({
@@ -15,7 +16,11 @@ export class StudentsComponent implements OnInit {
 
   displayedColumns = ['id', 'name', 'cpf', 'actions'];
 
-  constructor(private router: Router, private studentService: StudentService) {}
+  constructor(
+    private router: Router,
+    private studentService: StudentService,
+    private notification: NotificationService
+  ) {}
 
   ngOnInit(): void {
     this.loadStudents();
@@ -37,13 +42,19 @@ export class StudentsComponent implements OnInit {
   }
 
   deleteStudent(student: Student): void {
-    if (!confirm('Você tem certeza?')) {
-      return;
-    }
-    this.studentService.deleteStudent(student.id).subscribe(() => {
-      alert('Estudante excluído com sucesso!');
-      this.loadStudents();
-    });
+    this.notification
+      .confirm({
+        title: 'Você tem certeza?',
+        text: 'Essa ação não poderá ser desfeita',
+      })
+      .subscribe((isConfirmed) => {
+        if (isConfirmed) {
+          this.studentService.deleteStudent(student.id).subscribe(() => {
+            this.notification.success('Estudante excluído com sucesso!');
+            this.loadStudents();
+          });
+        }
+      });
   }
 
   createStudent(): void {

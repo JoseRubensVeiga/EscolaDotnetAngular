@@ -111,7 +111,7 @@ namespace Escola.Repositories
             cmd.CommandText = "DELETE FROM professores ";
             cmd.CommandText += "WHERE id = " + teacherId;
 
-            cmd.ExecuteReader();
+           cmd.ExecuteReader();
             connection.Close();
         }
 

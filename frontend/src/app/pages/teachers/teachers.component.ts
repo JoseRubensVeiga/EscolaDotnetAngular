@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
 import { Teacher } from 'src/app/models/Teacher';
+import { NotificationService } from 'src/app/services/notification.service';
 import { TeacherService } from 'src/app/services/teacher.service';
 
 @Component({
@@ -15,7 +16,11 @@ export class TeachersComponent implements OnInit {
 
   displayedColumns = ['id', 'name', 'cpf', 'subject', 'actions'];
 
-  constructor(private teacherService: TeacherService, private router: Router) {}
+  constructor(
+    private teacherService: TeacherService,
+    private router: Router,
+    private notification: NotificationService
+  ) {}
 
   ngOnInit(): void {
     this.loadTeachers();
@@ -37,13 +42,27 @@ export class TeachersComponent implements OnInit {
   }
 
   deleteTeacher(teacher: Teacher): void {
-    if (!confirm('Você tem certeza?')) {
-      return;
-    }
-    this.teacherService.deleteTeacher(teacher.id).subscribe(() => {
-      alert('Professor excluído com sucesso!');
-      this.loadTeachers();
-    });
+    this.notification
+      .confirm({
+        title: 'Você tem certeza?',
+        text: 'Essa ação não poderá ser desfeita',
+      })
+      .subscribe((isConfirmed) => {
+        if (isConfirmed) {
+          this.teacherService.deleteTeacher(teacher.id).subscribe(
+            () => {
+              this.notification.success('Professor excluído com sucesso!');
+              this.loadTeachers();
+            },
+            () => {
+              this.notification.error(
+                'Existe um ou mais alunos vinculados à ele.'
+              );
+              this.notification.error('Não foi possível excluir o professor.');
+            }
+          );
+        }
+      });
   }
 
   createTeacher(): void {
