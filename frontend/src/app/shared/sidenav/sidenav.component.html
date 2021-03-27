@@ -1,6 +1,12 @@
 <div class="sidenav-container">
-  <ul>
-    <li>Alunos</li>
-    <li>Professores</li>
-  </ul>
+  <div>
+    <button mat-button (click)="goToStudents()">
+      <mat-icon style="margin-right: 5px">face</mat-icon>
+      Alunos
+    </button>
+    <button mat-button (click)="goToteachers()">
+      <mat-icon style="margin-right: 5px">tag_faces</mat-icon>
+      Professores
+    </button>
+  </div>
 </div>

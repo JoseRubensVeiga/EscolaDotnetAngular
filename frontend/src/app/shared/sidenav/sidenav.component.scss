@@ -1,22 +1,27 @@
 .sidenav-container {
   padding: 20px;
 
-  ul {
-    list-style: none;
+  & > div {
+    display: flex;
+    flex-direction: column;
 
-    li {
-      padding: 15px;
-      border-radius: 8px;
+    button {
+      border-radius: 4px;
+      padding-top: 5px;
+      padding-bottom: 5px;
       font-weight: bold;
+      text-align: left;
 
       transition: 0.3s;
+
+      font-size: 17px;
 
       &:hover {
         background-color: rgba(255, 255, 255, 0.281);
         cursor: pointer;
       }
 
-      & + li {
+      & + button {
         margin-top: 5px;
       }
     }
