@@ -1,0 +1,39 @@
+<mat-card>
+  <mat-card-title>{{ mode }} estudante</mat-card-title>
+
+  <form [formGroup]="formGroup">
+    <mat-form-field class="w-100" appearance="outline">
+      <mat-label>Id</mat-label>
+      <input matInput formControlName="id" />
+    </mat-form-field>
+    <mat-form-field class="w-100" appearance="outline">
+      <mat-label>Nome</mat-label>
+      <input matInput formControlName="name" />
+    </mat-form-field>
+    <mat-form-field class="w-100" appearance="outline">
+      <mat-label>CPF</mat-label>
+      <input matInput formControlName="cpf" />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Professor</mat-label>
+      <mat-select formControlName="teacherId">
+        <mat-option
+          *ngFor="let teacher of teachers$ | async"
+          [value]="teacher.id"
+        >
+          {{ teacher.name }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </form>
+  <button
+    *ngIf="mode !== 'Visualizar'"
+    mat-stroked-button
+    style="margin-right: 10px"
+    (click)="saveStudent()"
+  >
+    Salvar
+  </button>
+  <a mat-stroked-button routerLink="/students">Voltar</a>
+</mat-card>

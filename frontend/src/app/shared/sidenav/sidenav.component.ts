@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-sidenav',
@@ -6,11 +7,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./sidenav.component.scss'],
 })
 export class SidenavComponent implements OnInit {
-  constructor() {}
+  constructor(private router: Router) {}
 
   ngOnInit(): void {}
 
-  goToStudents(): void {}
+  goToStudents(): void {
+    this.router.navigate(['students']);
+  }
 
-  goToteachers(): void {}
+  goToteachers(): void {
+    this.router.navigate(['teachers']);
+  }
 }
