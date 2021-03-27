@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Admin\\Desktop\\Escola\\Escola.csproj": {}
+    "C:\\Users\\Admin\\Desktop\\dsd\\backend\\Escola.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Admin\\Desktop\\Escola\\Escola.csproj": {
+    "C:\\Users\\Admin\\Desktop\\dsd\\backend\\Escola.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Admin\\Desktop\\Escola\\Escola.csproj",
+        "projectUniqueName": "C:\\Users\\Admin\\Desktop\\dsd\\backend\\Escola.csproj",
         "projectName": "Escola",
-        "projectPath": "C:\\Users\\Admin\\Desktop\\Escola\\Escola.csproj",
+        "projectPath": "C:\\Users\\Admin\\Desktop\\dsd\\backend\\Escola.csproj",
         "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Admin\\Desktop\\Escola\\obj\\",
+        "outputPath": "C:\\Users\\Admin\\Desktop\\dsd\\backend\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",

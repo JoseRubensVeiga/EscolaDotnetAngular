@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Y76Bf7Ns1XFjvyIvDzZTCpx+tAY7Qxa9XyCYOhm+6t4C2mwXNItwGXJXJCfAu7jVWl4nGhmOqmMpssHmTmJZhA==",
+  "dgSpecHash": "T0zY3dwspouC0eKDKFrluSsyDdp+hg7H9EYCYS4b0b37P+bZn9jJqp6SCHxtLMpqKaHiyNLQ83FIsmNfzt/Ewg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Admin\\Desktop\\Escola\\Escola.csproj",
+  "projectFilePath": "C:\\Users\\Admin\\Desktop\\dsd\\backend\\Escola.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Admin\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\microsoft.win32.registry\\4.7.0\\microsoft.win32.registry.4.7.0.nupkg.sha512",
