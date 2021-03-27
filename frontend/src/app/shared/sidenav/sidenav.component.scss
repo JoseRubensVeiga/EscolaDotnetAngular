@@ -1,0 +1,24 @@
+.sidenav-container {
+  padding: 20px;
+
+  ul {
+    list-style: none;
+
+    li {
+      padding: 15px;
+      border-radius: 8px;
+      font-weight: bold;
+
+      transition: 0.3s;
+
+      &:hover {
+        background-color: rgba(255, 255, 255, 0.281);
+        cursor: pointer;
+      }
+
+      & + li {
+        margin-top: 5px;
+      }
+    }
+  }
+}
