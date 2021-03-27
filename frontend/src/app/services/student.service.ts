@@ -25,6 +25,11 @@ export class StudentService {
       .pipe(map((response: any) => new Student(response)));
   }
 
+  createStudent(student: Student): Observable<void> {
+    const url = environment.API.STUDENTS;
+    return this.http.post<void>(url, student);
+  }
+
   saveStudent(student: Student): Observable<void> {
     const url = environment.API.STUDENTS;
     return this.http.patch<void>(url, student);

@@ -41,8 +41,12 @@ export class StudentsComponent implements OnInit {
       return;
     }
     this.studentService.deleteStudent(student.id).subscribe(() => {
-      alert('estudante excluído com sucesso!');
+      alert('Estudante excluído com sucesso!');
       this.loadStudents();
     });
+  }
+
+  createStudent(): void {
+    this.router.navigate(['students', 'new']);
   }
 }

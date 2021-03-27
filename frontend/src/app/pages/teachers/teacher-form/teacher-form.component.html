@@ -18,26 +18,18 @@
       <mat-label>CPF</mat-label>
       <input matInput formControlName="cpf" />
     </mat-form-field>
-
-    <mat-form-field appearance="outline" class="w-100">
-      <mat-label>Professor</mat-label>
-      <mat-select formControlName="teacherId">
-        <mat-option
-          *ngFor="let teacher of teachers$ | async"
-          [value]="teacher.id"
-        >
-          {{ teacher.name }}
-        </mat-option>
-      </mat-select>
+    <mat-form-field class="w-100" appearance="outline">
+      <mat-label>Matéria</mat-label>
+      <input matInput formControlName="subject" />
     </mat-form-field>
   </form>
   <button
     *ngIf="mode !== 'Visualizar'"
     mat-stroked-button
     style="margin-right: 10px"
-    (click)="saveStudent()"
+    (click)="saveTeacher()"
   >
     Salvar
   </button>
-  <a mat-stroked-button routerLink="/students">Voltar</a>
+  <a mat-stroked-button routerLink="/teachers">Voltar</a>
 </mat-card>
