@@ -18,6 +18,10 @@ export class StudentsComponent implements OnInit {
   constructor(private router: Router, private studentService: StudentService) {}
 
   ngOnInit(): void {
+    this.loadStudents();
+  }
+
+  private loadStudents(): void {
     this.studentService.getAll().subscribe((students) => {
       this.dataSource.data = students;
       this.students = students;
@@ -33,6 +37,12 @@ export class StudentsComponent implements OnInit {
   }
 
   deleteStudent(student: Student): void {
-    alert('a');
+    if (!confirm('Você tem certeza?')) {
+      return;
+    }
+    this.studentService.deleteStudent(student.id).subscribe(() => {
+      alert('estudante excluído com sucesso!');
+      this.loadStudents();
+    });
   }
 }
